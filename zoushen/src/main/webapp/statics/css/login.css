@@ -1,0 +1,71 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: url("/zoushen/statics/image/sky1.png") no-repeat;
+    background-size:100% 100%;
+    background-attachment:fixed;
+}
+.page-container{
+    margin: 0 auto;
+    width: 800px;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.empty-height-250{
+    height: 250px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.empty-height-120{
+    height: 120px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+form{
+    padding-top: 20px;
+    height: 100%;
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.header{
+    margin: 0;
+    padding:0;
+    width: 100%;
+    height: 45px;
+    position: relative;
+    font-size: 20px;
+    line-height: 45px;
+    background-color: rgba(250, 250, 250, 0.5);
+}
+
+.img-span{
+    line-height: 38px;
+    font-size: 25px;
+}
+
+.back{
+    color: rgba(58, 58, 58, 0.71);
+}
+
+.flag {
+    line-height: 42px;
+    padding-left: 40px;
+}
+
+.header-font-size {
+    font-size: 25px;
+}
+
+.layer{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+    background-size:100% 100%;
+    background-attachment:fixed;
+    display: none;
+}

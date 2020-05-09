@@ -1,0 +1,187 @@
+.left-area {
+    margin: 0;
+    padding: 0;
+}
+
+.center-area {
+    margin: 0;
+    padding: 0;
+}
+
+.right-area {
+    margin: 0;
+    padding: 0;
+}
+
+.page {
+    margin: 0px;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+/*
+    left-area
+*/
+.notes {
+
+}
+
+.notes-body {
+    height: 500px;
+}
+
+.system-msg {
+    height: 200px;
+}
+
+.notes, .system-msg {
+    margin: 2px;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.left-head {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    height: 35px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.notes-label {
+    font: normal 800 16px "新宋体";
+}
+
+.more-line {
+    font: normal 800 12px "新宋体";
+}
+
+.notes-label, .more-line {
+    text-align: right;
+    line-height: 35px;
+}
+
+/*
+    center-area
+*/
+.center-head {
+    font: normal 800 18px "新宋体";
+    line-height: 50px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.center-body {
+    position: relative;
+    height: 696px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.grade-info {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    border-bottom: 4px solid lightblue;
+    line-height: 50px;
+}
+
+.level {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    font: normal 800 10px "新宋体";
+    top: 22px;
+}
+.experience-details{
+    color: rgba(0,0,0,0.27);
+    margin: 0;
+    padding: 0;
+    position: relative;
+    font: normal 800 10px "新宋体";
+    height: 50%;
+    top: 22px;
+}
+
+.user-label {
+    border: 1px;
+    text-align: center;
+}
+
+.info-bar {
+}
+
+.create-article {
+    font-weight: 800;
+}
+
+.id-label {
+}
+
+.user-head {
+    height: 50px;
+}
+
+.head-img {
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: 50px;
+    position: relative;
+    /*line-height: 50px;*/
+    /*cursor: pointer;*/
+}
+
+.btn-size-small {
+    border-radius: 100px;
+    margin: 0;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    background-color: rgba(255,255,255,0);
+}
+
+.center-head, .center-body {
+    margin: 2px;
+    padding: 0;
+}
+.zoushen-opacity-7-bg{
+    background-color: rgba(255,255,255,0.7);
+}
+
+btn-group,button,dropdown-menu {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.head-list{
+    display: none;
+    position: absolute;
+    width: 100px;
+    height: 300px;
+    top: 50px;
+    left: 500px;
+}
+
+/*
+    right-area
+*/
+.blog-menu{
+    margin: 2px;
+}
+
+.right-head{
+    margin:0;
+    padding: 0;
+    height: 35px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.blog-menu-body{
+    margin:0;
+    padding: 0;
+    height: 650px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.blog-menu-label{
+    line-height: 35px;
+}
