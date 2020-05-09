@@ -4,30 +4,49 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import tk.mybatis.mapper.annotation.KeySql;
+import tk.mybatis.mapper.annotation.NameStyle;
+import tk.mybatis.mapper.code.Style;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.util.Date;
 
 @Data
 @NoArgsConstructor
+@Table(name = "users_info")
 public class UserInfo implements Serializable {
-    private int id;
+    @Id
+    @KeySql(useGeneratedKeys = true)
+    private Integer id;
+    @Column(name = "username")
     private String username;
+    @Column(name = "password")
     private String password;
+    @Column(name = "email")
     private String email;
-    private int sex;
+    @Column(name = "sex")
+    private Integer sex;
+    @Column(name = "headImg")
     private String headImg;
+    @Column(name = "zsNum")
     private String zsNum;
+    @Column(name = "birthday")
     private String birthday;
-    private int experience;
-    private int delete;
+    @Column(name = "experience")
+    private Integer experience;
+    @Column(name = "delete")
+    private Integer delete;
+    @Transient
     private String level;
-    @TableField(exist = false)
-    private int nextExperience;
+    @Transient
+    private Integer nextExperience;
 
-    public UserInfo(int id, String username, String password, String email, int sex,
-                    String headImg, String zsNum, String birthday, int experience, int delete, String level) {
+    public UserInfo(Integer id, String username, String password, String email, Integer sex, String headImg, String zsNum, String birthday, Integer experience, Integer delete, String level, Integer nextExperience) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -39,6 +58,7 @@ public class UserInfo implements Serializable {
         this.experience = experience;
         this.delete = delete;
         this.level = level;
+        this.nextExperience = nextExperience;
     }
 
     public UserInfo(RegistVo vo) throws ParseException {
