@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:spring-application.xml")
+@ContextConfiguration(locations = "classpath:application.xml")
 public class ZoushenTest {
     @Autowired
     private UserDao userDao;
