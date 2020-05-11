@@ -3,6 +3,25 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yang.zoushen.dao.UserDao">
+
+    <resultMap id="userMap" type="UserInfo">
+        <id property="id" column="id" />
+        <result property="username" column="" />
+        <result property="password" column="password" />
+        <result property="email" column="email" />
+        <result property="sex" column="sex" />
+        <result property="headImg" column="headImg" />
+        <result property="zsNum" column="zsNum" />
+        <result property="birthday" column="birthday" />
+        <result property="experience" column="experience" />
+        <result property="deleteFlag" column="deleteFlag" />
+        <association property="gradeRule" javaType="GradeRule">
+            <id property="id" column="gid"/>
+            <result property="level" column="level" />
+            <result property="experience" column="experience" />
+        </association>
+    </resultMap>
+
     <select id="findNextExperienceByUsername" parameterType="string" resultType="int">
         SELECT g.`experience`
         FROM users_info u
@@ -12,16 +31,16 @@
         GROUP BY u.`id`
     </select>
 
-    <select id="findUserByName" parameterType="string" resultType="UserInfo">
-      SELECT u.*,MAX(g.`level`) `level`
-      FROM users_info u
-      LEFT JOIN grade_rule g
-      ON u.`experience` >= g.`experience`
-      WHERE username = #{username}
-      GROUP BY u.`id`
+    <select id="findUserByName" parameterType="string" resultMap="userMap">
+      SELECT u.*,g.`id` gid,MAX(g.`level`) `level`,g.`experience`
+       FROM users_info u LEFT JOIN grade_rule g
+       ON u.`experience` >= g.`experience`
+       WHERE u.`username` = #{username}
+       GROUP BY u.`id`
     </select>
 
-    <insert id="insertByUser" parameterType="UserInfo">
+    <insert id="insertByUser" parameterType="UserInfo" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+
         insert into users_info (username,password,email,sex,zsNum,birthday)
         value (#{username},#{password},#{email},#{sex},#{zsNum},#{birthday})
     </insert>

@@ -1,12 +1,8 @@
 package com.yang.zoushen.domain;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import tk.mybatis.mapper.annotation.KeySql;
-import tk.mybatis.mapper.annotation.NameStyle;
-import tk.mybatis.mapper.code.Style;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
@@ -57,15 +53,5 @@ public class UserInfo implements Serializable {
         this.experience = experience;
         this.deleteFlag = deleteFlag;
         this.nextExperience = nextExperience;
-    }
-
-    public UserInfo(RegistVo vo) throws ParseException {
-        this.username = vo.getUsername();
-        this.password = vo.getPassword();
-        this.email = vo.getEmail();
-        this.sex = vo.getSex();
-        this.birthday = vo.getBirthday();
-        this.zsNum = "zs_" + new Date().getTime();
-        this.deleteFlag = 0;
     }
 }
