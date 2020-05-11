@@ -21,11 +21,7 @@ public class AppTest {
     UserService userService;
     @Test
     public void test01() throws SQLException {
-        userService.addByUser(new UserInfo(
-                666,"tx","123","123@qq.com",1,
-                "default_head.png","zs_tx123346","1997-1-7",
-                1000,0,"5"
-        ));
+
     }
 
     @Test

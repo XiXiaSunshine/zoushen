@@ -33,4 +33,14 @@ public class UserServiceImpl implements UserService {
         }
         return userDao.insertByUser(userInfo);
     }
+
+    @Override
+    public List<UserInfo> selectAll() {
+        return userDao.selectAll();
+    }
+
+    @Override
+    public List<UserInfo> findByLevel(String level) {
+        return userDao.findByLevel(level);
+    }
 }

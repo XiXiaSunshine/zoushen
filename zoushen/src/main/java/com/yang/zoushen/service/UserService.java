@@ -12,4 +12,8 @@ public interface UserService {
     public List<UserInfo> findUserByName(String username) throws SQLException, ParseException;
 
     int addByUser(UserInfo userInfo) throws SQLException;
+
+    List<UserInfo> selectAll();
+
+    List<UserInfo> findByLevel(String level);
 }

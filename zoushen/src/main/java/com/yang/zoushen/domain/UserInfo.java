@@ -39,14 +39,14 @@ public class UserInfo implements Serializable {
     private String birthday;
     @Column(name = "experience")
     private Integer experience;
-    @Column(name = "delete")
-    private Integer delete;
+    @Column(name = "deleteFlag")
+    private Integer deleteFlag;
     @Transient
     private String level;
     @Transient
     private Integer nextExperience;
 
-    public UserInfo(Integer id, String username, String password, String email, Integer sex, String headImg, String zsNum, String birthday, Integer experience, Integer delete, String level, Integer nextExperience) {
+    public UserInfo(Integer id, String username, String password, String email, Integer sex, String headImg, String zsNum, String birthday, Integer experience, Integer deleteFlag, String level, Integer nextExperience) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -56,7 +56,7 @@ public class UserInfo implements Serializable {
         this.zsNum = zsNum;
         this.birthday = birthday;
         this.experience = experience;
-        this.delete = delete;
+        this.deleteFlag = deleteFlag;
         this.level = level;
         this.nextExperience = nextExperience;
     }
@@ -68,6 +68,6 @@ public class UserInfo implements Serializable {
         this.sex = vo.getSex();
         this.birthday = vo.getBirthday();
         this.zsNum = "zs_" + new Date().getTime();
-        this.delete = 0;
+        this.deleteFlag = 0;
     }
 }

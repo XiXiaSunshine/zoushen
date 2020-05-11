@@ -3,6 +3,7 @@ package com.yang.zoushen.web;
 import com.yang.zoushen.dao.UserDao;
 import com.yang.zoushen.domain.SimpleMsgVo;
 import com.yang.zoushen.domain.TestDto;
+import com.yang.zoushen.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -13,11 +14,18 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("test")
 public class TestController {
     @Autowired
-    private UserDao userDao;
+    private UserService userService;
+
+    @GetMapping("level.do")
+    public String selectByLevelTest(){
+        System.out.println(userService.findByLevel("4"));
+        return "hello";
+    }
 
     @GetMapping("all.do")
-    public void selectAllTest(){
-        System.out.println(userDao.selectAll());
+    public String selectAllTest(){
+        System.out.println(userService.selectAll());
+        return "hello";
     }
     @GetMapping("tagdemo.do")
     public String tagdemo(HttpServletRequest request){
