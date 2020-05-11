@@ -1,4 +1,4 @@
-package com.yang.zoushen.domain;
+package com.yang.test.domain;
 
 import lombok.Data;
 

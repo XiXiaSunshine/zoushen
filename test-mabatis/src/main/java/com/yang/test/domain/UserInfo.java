@@ -1,4 +1,4 @@
-package com.yang.zoushen.domain;
+package com.yang.test.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,8 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import java.io.Serializable;
-import java.text.ParseException;
-import java.util.Date;
 
 @Data
 @NoArgsConstructor
