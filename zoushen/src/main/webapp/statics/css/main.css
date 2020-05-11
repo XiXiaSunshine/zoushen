@@ -65,7 +65,6 @@
     center-area
 */
 .center-head {
-    font: normal 800 18px "新宋体";
     line-height: 50px;
     background-color: rgba(255, 255, 255, 0.6);
 }
@@ -102,7 +101,16 @@
 }
 
 .user-label {
+    margin-top: 15px;
     border: 1px;
+    text-align: center;
+    font: normal 800 18px "新宋体";
+}
+
+.signature {
+    font: normal 600 12px "新宋体";
+    line-height: 12px;
+    color: #696969;
     text-align: center;
 }
 
@@ -126,8 +134,6 @@
     width: auto;
     height: 50px;
     position: relative;
-    /*line-height: 50px;*/
-    /*cursor: pointer;*/
 }
 
 .btn-size-small {

@@ -116,6 +116,7 @@ public class UserController {
         if (loginToken.equals(sLoginToken)) {
             userInfo.setNextExperience(userService.findNextExperienceByUsername(username));
             request.setAttribute("userInfo", userInfo);
+            System.out.println(userInfo);
             return "main";
         }
 
@@ -215,7 +216,6 @@ public class UserController {
             }else {
                 msg = "注册成功,请点击前往登录……";
                 url += "index.jsp";
-
             }
 
         } else if (userInfos.size() == 1) {

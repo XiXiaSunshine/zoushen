@@ -57,7 +57,7 @@ public class DBConfig {
 
         sqlSessionFactoryBean.setDataSource(dataSource());
         sqlSessionFactoryBean.setMapperLocations(
-                resolver.getResources("classpath:com/yang/zoushen/mapper/UserMapper.xml"));
+                resolver.getResources("classpath*:com/yang/zoushen/mapper/*Mapper.xml"));
         sqlSessionFactoryBean.setTypeAliasesPackage("com.yang.zoushen.domain");
         return sqlSessionFactoryBean;
     }

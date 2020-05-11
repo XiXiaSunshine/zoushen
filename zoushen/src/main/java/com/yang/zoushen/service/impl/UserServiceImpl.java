@@ -23,7 +23,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserInfo> findUserByName(String username) throws SQLException, ParseException {
-        return userDao.findUserByName(username);
+        List<UserInfo> userInfos = userDao.findUserByName(username);
+        System.out.println(userInfos);
+        return userInfos;
     }
 
     @Override
@@ -41,6 +43,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserInfo> findByLevel(String level) {
-        return userDao.findByLevel(level);
+        List<UserInfo> userInfos = userDao.findByLevel(level);
+        return userInfos;
     }
 }

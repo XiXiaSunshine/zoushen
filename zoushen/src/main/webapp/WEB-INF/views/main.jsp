@@ -55,7 +55,7 @@
             <div class="row center-head">
 
                 <div class="col-md-2 grade-info row">
-                    <div class="row level">等级：${userInfo.level}(距离升级还需：${userInfo.nextExperience-userInfo.experience})</div>
+                    <div class="row level">等级：${userInfo.gradeRule.level}(距离升级还需：${userInfo.nextExperience-userInfo.experience})</div>
 
                     <div class="row experience-details">
                         <div class="progress">
@@ -67,7 +67,14 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 col-md-offset-2 user-label">${userInfo.username}博客</div>
+                <div class="col-md-4 col-md-offset-2">
+                    <div class="row">
+                        <div class="user-label">${userInfo.username}博客</div>
+                    </div>
+                    <div class=" row">
+                        <div class="col-md-offset-2 signature">${userInfo.signature}</div>
+                    </div>
+                </div>
 
                 <div class="col-md-4 row info-bar">
 

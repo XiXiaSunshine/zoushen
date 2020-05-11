@@ -6,6 +6,7 @@ CREATE TABLE `users_info` (
   `sex` INT(1),
   `headImg` VARCHAR(32) DEFAULT 'default_head.png',
   `zsNum` VARCHAR(32) DEFAULT NULL,
+  `signature` VARCHAR(50) DEFAULT '他真的从来没来过吗……',
   `birthday` DATE DEFAULT NULL,
   `experience` INT(11) DEFAULT '0',
   `delete` INT(1) DEFAULT '0'

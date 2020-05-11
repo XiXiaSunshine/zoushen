@@ -6,19 +6,20 @@
 
     <resultMap id="userMap" type="UserInfo">
         <id property="id" column="id" />
-        <result property="username" column="" />
+        <result property="username" column="username" />
         <result property="password" column="password" />
         <result property="email" column="email" />
         <result property="sex" column="sex" />
         <result property="headImg" column="headImg" />
         <result property="zsNum" column="zsNum" />
+        <result property="signature" column="signature" />
         <result property="birthday" column="birthday" />
         <result property="experience" column="experience" />
         <result property="deleteFlag" column="deleteFlag" />
         <association property="gradeRule" javaType="GradeRule">
             <id property="id" column="gid"/>
             <result property="level" column="level" />
-            <result property="experience" column="experience" />
+            <result property="experience" column="gExp" />
         </association>
     </resultMap>
 
@@ -32,15 +33,13 @@
     </select>
 
     <select id="findUserByName" parameterType="string" resultMap="userMap">
-      SELECT u.*,g.`id` gid,MAX(g.`level`) `level`,g.`experience`
-       FROM users_info u LEFT JOIN grade_rule g
-       ON u.`experience` >= g.`experience`
-       WHERE u.`username` = #{username}
-       GROUP BY u.`id`
+      SELECT u.*,MAX(g.`id`) gid,MAX(g.`level`) `level`,MAX(g.`experience`) gExp
+      FROM users_info u LEFT JOIN grade_rule g ON u.`experience` >= g.`experience`
+      WHERE u.`username`=#{username} GROUP BY u.`id`
     </select>
 
-    <insert id="insertByUser" parameterType="UserInfo" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
-
+    <insert id="insertByUser" parameterType="UserInfo"
+            useGeneratedKeys="true" keyColumn="id" keyProperty="id">
         insert into users_info (username,password,email,sex,zsNum,birthday)
         value (#{username},#{password},#{email},#{sex},#{zsNum},#{birthday})
     </insert>
