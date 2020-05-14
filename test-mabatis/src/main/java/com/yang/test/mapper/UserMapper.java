@@ -7,10 +7,16 @@ import tk.mybatis.mapper.common.Mapper;
 import java.util.List;
 
 public interface UserMapper extends Mapper<UserInfo> {
-    /**
-     * 根据用户名查询
-     * @param username
-     * @return
-     */
+
+    UserInfo findById(Integer id);
+
+    int insert(UserInfo userInfo);
+
+    List<UserInfo> findByLikeName(String name);
+
+    Integer findNextExperienceByUsername(String username);
+
     List<UserInfo> findUserByName(@Param("username") String username);
+
+    List<UserInfo> findByLevelAndExp(@Param("level") String level,@Param("exp") Integer exp);
 }
