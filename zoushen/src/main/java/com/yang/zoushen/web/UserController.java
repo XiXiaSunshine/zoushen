@@ -3,6 +3,7 @@ package com.yang.zoushen.web;
 import com.yang.zoushen.domain.DataVo;
 import com.yang.zoushen.domain.RegistVo;
 import com.yang.zoushen.domain.UserInfo;
+import com.yang.zoushen.exception.LoginException;
 import com.yang.zoushen.service.UserService;
 import com.yang.zoushen.util.SSMUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,6 +93,7 @@ public class UserController {
      * @return
      */
     @GetMapping("login.do")
+    @ExceptionHandler(LoginException.class)
     public String login(@CookieValue("loginToken") String loginToken, String username, HttpServletResponse response) {
         // 判断是否已正常登录下，获得token
         UserInfo userInfo = null;
@@ -109,20 +111,19 @@ public class UserController {
             userInfo = userInfoList.get(0);
         } else {
             request.setAttribute("msg", "登录失败，无效的验证！");
-            return "/error.jsp";
+            return "error";
         }
 
         String sLoginToken = (String) session.getAttribute("loginToken");
         if (loginToken.equals(sLoginToken)) {
             userInfo.setNextExperience(userService.findNextExperienceByUsername(username));
             request.setAttribute("userInfo", userInfo);
-            System.out.println(userInfo);
             return "main";
         }
 
         request.setAttribute("msg", "登录失败，无效的验证！");
 
-        return "/error.jsp";
+        return "error";
     }
 
     /**

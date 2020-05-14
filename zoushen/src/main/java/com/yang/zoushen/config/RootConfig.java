@@ -1,11 +1,12 @@
 package com.yang.zoushen.config;
 
-import org.springframework.context.annotation.ComponentScan;
+import com.yang.zoushen.exception.ZsExceptionResolver;
+import org.springframework.context.annotation.*;
 import org.springframework.context.annotation.ComponentScan.Filter;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.FilterType;
-import org.springframework.context.annotation.ImportResource;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver;
 
 @Configuration
 @ComponentScan(
@@ -16,4 +17,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @ImportResource(locations = "classpath:application.xml")
 
 public class RootConfig {
+
+        @Bean
+        public HandlerExceptionResolver exceptionResolver(){
+                return new ZsExceptionResolver();
+        }
 }
