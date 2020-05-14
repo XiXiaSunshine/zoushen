@@ -4,29 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yang.test.mapper.UserMapper">
 
-    <resultMap id="userMap1" type="UserInfo">
-        <id property="id" column="id"/>
-        <result property="username" column="username"/>
-        <result property="password" column="password"/>
-        <result property="email" column="email"/>
-        <result property="sex" column="sex"/>
-        <result property="headImg" column="headImg"/>
-        <result property="zsNum" column="zsNum"/>
-        <result property="birthday" column="birthday"/>
-        <result property="experience" column="experience"/>
-        <result property="deleteFlag" column="deleteFlag"/>
-        <association property="gradeRule" javaType="GradeRule" column="experience" select="com.yang.test.mapper.GradeMapper.findByExp"></association>
-    </resultMap>
-
-
-    <select id="findById" resultMap="userMap1">
-        select * from users_info where id = #{id}
-    </select>
-
-
     <resultMap id="userMap" type="UserInfo">
         <id property="id" column="id"/>
-        <result property="username" column="username"/>
+        <result property="username" column=""/>
         <result property="password" column="password"/>
         <result property="email" column="email"/>
         <result property="sex" column="sex"/>
@@ -41,39 +21,10 @@
             <result property="experience" column="gExp"/>
         </association>
     </resultMap>
-
-
-    <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
-        INSERT INTO users_info (username,`password`,email,sex,zsNum,birthday)
-        VALUES(#{username},#{password},#{email},#{sex},#{zsNum},#{birthday})
-    </insert>
-
-    <select id="findNextExperienceByUsername" parameterType="string" resultType="int">
-        SELECT g.`experience`
-        FROM users_info u
-        LEFT JOIN grade_rule g
-        ON u.`experience` &lt; g.`experience`
-        WHERE username = #{username}
-        GROUP BY u.`id`
-    </select>
-
     <select id="findUserByName" resultMap="userMap">
       SELECT u.*,MAX(g.`id`) gid,MAX(g.`level`) `level`,MAX(g.`experience`) gExp
       FROM users_info u LEFT JOIN grade_rule g ON u.`experience` >= g.`experience`
       WHERE u.`username`=#{username} GROUP BY u.`id`
-    </select>
-
-    <select id="findByLevelAndExp" resultMap="userMap">
-        SELECT u.*, MAX(g.`id`) gid, MAX(g.`level`) `level`, MAX(g.`experience`) gExp
-          FROM users_info u LEFT JOIN grade_rule g ON u.`experience` >= g.`experience`
-          GROUP BY u.`id`
-          HAVING `level` = #{level} AND experience > ${exp}
-    </select>
-    <select id="findByLikeName" resultType="com.yang.test.domain.UserInfo">
-        SELECT u.*, MAX(g.`id`), MAX(g.`level`) `level`, MAX(g.`experience`) gExp
-        FROM users_info u LEFT JOIN grade_rule g ON u.`experience` >= g.`experience`
-        GROUP BY u.`id`
-        HAVING u.`username` LIKE CONCAT(CONCAT('%',#{name}),'%')
     </select>
 
 </mapper>
