@@ -1,6 +1,5 @@
 package com.yang.zoushen.exception;
 
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 

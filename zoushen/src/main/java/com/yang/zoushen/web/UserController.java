@@ -5,7 +5,7 @@ import com.yang.zoushen.domain.RegistVo;
 import com.yang.zoushen.domain.UserInfo;
 import com.yang.zoushen.exception.LoginException;
 import com.yang.zoushen.service.UserService;
-import com.yang.zoushen.util.SSMUtils;
+import com.yang.zoushen.util.HttpUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +19,9 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.List;
 
+/**
+ * @author yang
+ */
 @Controller
 @RequestMapping("user")
 public class UserController {
@@ -139,10 +142,10 @@ public class UserController {
     @PostMapping("check.do")
     @ResponseBody
     public DataVo check(String username, String password, String code, HttpServletResponse response) throws SQLException, IOException, ParseException {
-        String code_session = (String) session.getAttribute("code_session");
+        String codeSession = (String) session.getAttribute("code_session");
         DataVo dv = new DataVo();
 
-        if (!code_session.equalsIgnoreCase(code)) {
+        if (!codeSession.equalsIgnoreCase(code)) {
             dv.setCode(1002);
             dv.setMsg("验证码错误！");
             return dv;
@@ -154,7 +157,7 @@ public class UserController {
 
             if (userInfos.get(0).getPassword().equals(password)) {
 
-                String loginToken = SSMUtils.generateLoginToken(request, response);
+                String loginToken = HttpUtils.generateLoginToken(request, response);
                 System.out.println(loginToken);
 
                 dv.setCode(1001);
@@ -184,7 +187,7 @@ public class UserController {
      */
     @RequestMapping("code.do")
     public void code(HttpServletResponse response) throws IOException {
-        SSMUtils.checkcode(request, response);
+        HttpUtils.checkcode(request, response);
     }
 
     /**

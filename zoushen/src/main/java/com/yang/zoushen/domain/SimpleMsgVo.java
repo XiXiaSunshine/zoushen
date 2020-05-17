@@ -2,13 +2,13 @@ package com.yang.zoushen.domain;
 
 import com.yang.zoushen.enums.SimpleMsgEnum;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.io.Serializable;
 
 @Data
 public class SimpleMsgVo implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private Boolean flag;
     private String msg;
     private String url;

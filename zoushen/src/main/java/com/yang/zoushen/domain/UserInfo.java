@@ -14,6 +14,8 @@ import java.util.Date;
 @NoArgsConstructor
 @Table(name = "users_info")
 public class UserInfo implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     @Id
     @KeySql(useGeneratedKeys = true)
     private Integer id;
