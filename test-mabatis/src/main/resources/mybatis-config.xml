@@ -12,7 +12,7 @@
     </settings>
 
     <typeAliases>
-        <package name="com.yang.test.domain"/>
+        <package name="com.yang.domain"/>
     </typeAliases>
 
     <environments default="dev">    
@@ -28,6 +28,6 @@
     </environments>
 
     <mappers>
-        <package name="com.yang.test.mapper" />
+        <package name="com.yang.mapper" />
     </mappers>
 </configuration>
